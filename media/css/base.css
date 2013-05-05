@@ -256,10 +256,11 @@ footer {
     right:0;
     background:#333;
     color:#999;
-    border-top:10px solid #B91E27;
-    padding-top:10px;
-    text-align:center;
     display:none;
+}
+#foot footer{
+    border-top:6px solid #B91E27;
+    padding-top:6px;
 }
 
 nav .nav a.browserid-login {

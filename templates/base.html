@@ -31,16 +31,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>
     $(document).ready(function(){
-        var hidden = true;
         $(".hide-footer").click(function(){
-          if(hidden){
-            $("footer").css("display", "block");
-            hidden = false;
-          }
-          else{
-            $("footer").css("display", "none");
-            hidden = true;
-          }
+          $("footer").slideToggle(500);
         });
     });
   </script>
@@ -155,6 +147,7 @@
     {% block main_content %}{% endblock %}
   </div>
 
+  <footer id="foot">
   <footer>
     <div class="container row">
     <p id="footer-links" class="span3">
@@ -204,6 +197,7 @@
         {% endblock %}
       </div>
     </div>
+  </footer>
   </footer>
   <div class="hide-footer">---Click Me!!!---</div>
 
