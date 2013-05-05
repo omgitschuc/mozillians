@@ -244,16 +244,19 @@ h4 {
 .hide-footer{
     bottom:0;
     left:20px;
-    background:#B91E27;
-    color:white;
+    background:#333;
+    color:#999;
     font-size:12px;
+    left:0;
+    width:100%;
+    text-align:center;
     position:fixed;
 }
 footer {
     position:fixed;
     bottom:0;
     left:0;
-    right:0;
+    width:100%;
     background:#333;
     color:#999;
     display:none;
