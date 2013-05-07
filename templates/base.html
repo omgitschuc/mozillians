@@ -31,9 +31,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>
     $(document).ready(function(){
-        $(".hide-footer").click(function(){
-          $("footer").slideToggle(500);
-        });
+        $("footer").css({display:"block"});
+        var getWinWidth = $(window).width();
+        if(getWinWidth > 480){
+	  var footerh = $("footer").height();
+          var hidefooth = $(".pushfooter").height();
+          var totalfooth = footerh + hidefooth;
+          $("footer").css({display:"none", position:"fixed"});
+          $("footer").css("padding-bottom", totalfooth);
+          $("#pushfooter").css("padding-bottom", totalfooth*2);
+          $(".hide-footer").css({display:"block"});
+          $(".hide-footer").click(function(){
+            $("footer").slideToggle(1000);
+          });
+        }
+        else{
+          $(".hide-footer").css({position:"static"});
+        }
     });
   </script>
 </head>
@@ -147,21 +161,15 @@
     {% block main_content %}{% endblock %}
   </div>
 
+  <div id="pushfooter"></div>
+
   <footer id="foot">
   <footer>
     <div class="container row">
     <p id="footer-links" class="span3">
         {% block footer_links %}
-          <a href="{{ url('about') }}">
-            {{ _('About Mozillians') }}
-          </a>
-          &nbsp;|&nbsp;
           <a href="https://wiki.mozilla.org/Mozillians#Get_Involved">
             {{ _('Get Involved') }}
-          </a>
-          &nbsp;|&nbsp;
-          <a href="http://www.mozilla.org/{{ LANG }}/privacy-policy.html">
-            {{ _('Privacy Policy') }}
           </a>
           &nbsp;|&nbsp;
           <a href="http://mozilla.com/about/legal.html">
@@ -191,15 +199,23 @@
           </a> or any later version.
         {% endtrans %}
       </p>
-      <div class="span3">
-        {% block lang_switcher %}
-          {% include 'includes/lang_switcher.html' %}
-        {% endblock %}
-      </div>
+
     </div>
   </footer>
   </footer>
-  <div class="hide-footer">Click For Additional Links & Information</div>
+  <div class="hide-footer">        
+    {% block lang_switcher %}
+      {% include 'includes/lang_switcher.html' %}
+    {% endblock %}
+    <a href="{{ url('about') }}">
+      {{ _('About Mozillians') }}
+    </a>
+    &nbsp;|&nbsp;
+    <a href="http://www.mozilla.org/{{ LANG }}/privacy-policy.html">
+      {{ _('Privacy Policy') }}
+    </a>
+    <p>Click here to get involved and see copyright information.</p>
+  </div>
 
 {% block browserid_form %}
   {% if not user.is_authenticated() %}
