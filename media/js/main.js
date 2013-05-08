@@ -23,16 +23,20 @@ var app = {
         // Footer hovers when window width is greater than 480px
         var getWinWidth = $(window).width();
         if(getWinWidth > 480){
-	  var footerH = $("footer").height();
-          var footContainerH = $("footer .container").height();
-          $("#main.container").css("padding-bottom", footerH);
-          $("footer").css({"bottom":-footContainerH, position:"fixed"});
-          $("footer").hover(function() {
-            $(this).animate({bottom:"0"}, 1000);
+          var $footer = $("footer");
+          var default_h = $footer.height();
+          var rollover_h = $footer.find(".rollover").height();
+          $footer.css({"bottom":-rollover_h, position:"fixed"});
+          $("#main.container").css("padding-bottom", default_h);
+          $(window).resize(function(){
+            rollover_h = $footer.find(".rollover").height();
+            $footer.css({"bottom":-rollover_h});
+          });
+          $footer.hover(function() {
+            $(this).stop().animate({bottom:"0"}, 500);
           }, function() {
-            $(this).animate({"bottom":-footContainerH}, 1000);
+            $(this).stop().animate({"bottom":-rollover_h}, 500);
           });
         }
-        $("footer").css({visibility:"visible"});
     });
 })(jQuery);

@@ -248,7 +248,7 @@ footer {
     bottom:0;
     background:#333;
     color:#999;
-    visibility:hidden;
+    overflow:hidden;
 }
 
 nav .nav a.browserid-login {
@@ -654,6 +654,11 @@ legend {
 footer div.container {
     margin-left: auto;
     margin-right: auto;
+}
+footer div.rollover {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:3px;
 }
 
 .vouchees {
