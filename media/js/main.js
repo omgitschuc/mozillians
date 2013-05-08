@@ -19,5 +19,20 @@ var app = {
         $('#language').change(function() {
             $('#language-switcher').submit();
         });
+
+        // Footer hovers when window width is greater than 480px
+        var getWinWidth = $(window).width();
+        if(getWinWidth > 480){
+	  var footerH = $("footer").height();
+          var footContainerH = $("footer .container").height();
+          $("#main.container").css("padding-bottom", footerH);
+          $("footer").css({"bottom":-footContainerH, position:"fixed"});
+          $("footer").hover(function() {
+            $(this).animate({bottom:"0"}, 1000);
+          }, function() {
+            $(this).animate({"bottom":-footContainerH}, 1000);
+          });
+        }
+        $("footer").css({visibility:"visible"});
     });
 })(jQuery);

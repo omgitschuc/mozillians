@@ -240,32 +240,15 @@ h4 {
     color:#b91e27;
 }
 
-.hide-footer{
-    bottom:-10px;
-    left:20px;
-    background:#333;
-    color:#999;
-    font-size:12px;
-    left:0;
-    right:0;
-    position:fixed;
-    padding-top: 10px;
-}
-
-#pushfooter {
-    padding-bottom:0;
-}
 footer {
     border-top:6px solid #B91E27;
-    bottom:0;
+    padding-top:6px;
     left:0;
     right:0;
+    bottom:0;
     background:#333;
     color:#999;
-    display:none;
-}
-#foot footer{
-    padding-top:6px;
+    visibility:hidden;
 }
 
 nav .nav a.browserid-login {
