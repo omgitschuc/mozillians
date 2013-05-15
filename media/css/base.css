@@ -656,6 +656,7 @@ footer div.container {
     margin-right: auto;
 }
 footer div.rollover {
+    margin-top:-25px;
     margin-left: auto;
     margin-right: auto;
     padding-top:3px;
